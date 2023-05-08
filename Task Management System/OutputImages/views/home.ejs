@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+
+<body>
+
+  <div class="container mt-5">
+
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align:center;">Todo List</h1>
+    <p>Your tasks:-</p>
+
+    <ul>
+
+      <% if (todos.length) { %>
+        <% todos.forEach(todo=> { %>
+          <li class="d-flex">
+            <span>
+              <%= todo.title %>
+            </span>
+
+            <% if (todo.status===4) { %>
+              <span class="ml-2 text-success">
+                Complete
+              </span>
+              <% } else { %>
+                <form method="POST" action="/todo/update-status" class="d-flex ml-2">
+                  <input type="hidden" name="todoId" value="<%= todo.id %>">
+                  <select name="status" class="form-control" onchange="this.form.submit()">
+                    <option value="0" <% if (todo.status===0) { %>selected<% } %>>Not Started</option>
+                    <option value="1" <% if (todo.status===1) { %>selected<% } %>>In Progress</option>
+                    <option value="2" <% if (todo.status===2) { %>selected<% } %>>Pending</option>
+                    <option value="3" <% if (todo.status===3) { %>selected<% } %>>On Hold</option>
+                    <option value="4">Complete</option>
+                  </select>
+                </form>
+                <% } %>
+          </li>
+          <% }) %>
+            <% } else { %>
+              <li>No todos found</li>
+              <% } %>
+    </ul>
+
+  </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!--
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align:center;">Todo List</h1>
+    <p>Your tasks:-</p>
+
+    <ul>
+
+      <% if (todos.length) { %>
+        <% todos.forEach(todo=> { %>
+          <li class="d-flex">
+            <span>
+              <%= todo.title %>
+            </span>
+
+            <% if (todo.status===4) { %>
+              <span class="ml-2 text-success">
+                Complete
+              </span>
+            <% } else { %>
+              <form method="POST" action="/todo/update-status" class="d-flex ml-2">
+                <input type="hidden" name="todoId" value="<%= todo.id %>">
+                <select name="status" class="form-control" onchange="this.form.submit()">
+                  <option value="0" <% if (todo.status===0) { %>selected<% } %>>Not Started</option>
+                  <option value="1" <% if (todo.status===1) { %>selected<% } %>>In Progress</option>
+                  <option value="2" <% if (todo.status===2) { %>selected<% } %>>Pending</option>
+                  <option value="3" <% if (todo.status===3) { %>selected<% } %>>On Hold</option>
+                  <option value="4">Complete</option>
+                </select>
+              </form>
+            <% } %>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <li>No todos found</li>
+      <% } %>
+    </ul>
+
+  </div>
+</body>
+
+</html>
+
+
+-->
+<!--
+  <!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align:center;">Todo List</h1>
+    <p>Your tasks:-</p>
+
+    <ul>
+
+      <% if (todos.length) { %>
+        <% todos.forEach(todo=> { %>
+          <li class="d-flex">
+            <span>
+              <%= todo.title %>
+            </span>
+
+            <form method="POST" action="/todo/update-status" class="d-flex">
+              <input type="hidden" name="todoId" value="<%= todo.id %>">
+              <select name="status" class="form-control ml-2" onchange="this.form.submit()">
+                <option value="0" <% if (todo.status===0) { %>selected<% } %>>Not Started</option>
+                <option value="1" <% if (todo.status===1) { %>selected<% } %>>In Progress</option>
+                <option value="2" <% if (todo.status===2) { %>selected<% } %>>Pending</option>
+                <option value="3" <% if (todo.status===3) { %>selected<% } %>>On Hold</option>
+                <option value="4" <% if (todo.status===4) { %>selected<% } %>>Complete</option>
+              </select>
+           
+            </form>
+        
+
+          </li>
+          <% }) %>
+            <% } else { %>
+              <li>No todos found</li>
+              <% } %>
+    </ul>
+
+  </div>
+</body>
+
+</html>
+
+
+-->
+
+<!--
+
+
+
+
+  <script>
+    function updateStatus(select) {
+      if (select.value === "4") { // If "Complete" option is selected
+        // Disable all other options
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value !== "4") {
+            select.options[i].disabled = true;
+          }
+        }
+      } else {
+        // Enable all options
+        for (let i = 0; i < select.options.length; i++) {
+          select.options[i].disabled = false;
+        }
+      }
+    }
+    </script>
+    
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align:center;">Todo List</h1>
+    <p>Your tasks:-</p>
+
+    <ul>
+
+      <% if (todos.length) { %>
+        <% todos.forEach(todo=> { %>
+          <li class="d-flex">
+            <span>
+              <%= todo.title %>
+            </span>
+           
+           
+            <form method="POST" action="/todo/update-status" class="d-flex">
+              <input type="hidden" name="todoId" value="<%= todo.id %>">
+              <select name="status" class="form-control ml-2">
+                <option value="1" <% if (todo.status === 1) { %>selected<% } %>>In Progress</option>
+                <option value="2" <% if (todo.status === 2) { %>selected<% } %>>Pending</option>
+                <option value="3" <% if (todo.status === 3) { %>selected<% } %>>On Hold</option>
+                <option value="4" <% if (todo.status === 4) { %>selected<% } %>>Complete</option>
+              </select>
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+            
+            
+          </li>
+        <% }) %>
+      <% } else { %>
+        <li>No todos found</li>
+      <% } %>
+    </ul>
+
+  </div>
+</body>
+
+</html>
+-->
+<!--
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container mt-5">
+
+    <h1 class="p-3 mb-2 bg-dark text-white" style="text-align:center;">Todo List</h1>
+    <p>Your tasks:-</p>
+
+    <ul>
+
+      <% if (todos.length) { %>
+        <% todos.forEach(todo=> { %>
+          <li class="d-flex">
+            <span>
+              <%= todo.title %>
+            </span>
+            <div class="btn-group ml-auto">
+
+              <button type="button" class="btn btn-sm btn-outline-secondary">In Progress</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Pending</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">On Hold</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Complete</button>
+            </div>
+          </li>
+          <% }) %>
+            <% } else { %>
+              <li>No todos found</li>
+              <% } %>
+    </ul>
+
+  </div>
+</body>
+
+</html>
+
+-->

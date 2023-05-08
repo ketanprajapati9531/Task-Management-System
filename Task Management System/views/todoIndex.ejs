@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-color: darkgrey;">
+  <div class="container mt-5">
+    <h1>Todo List</h1>
+    <ul>
+      <% todos.forEach(todo=> { %>
+        <li>
+          <%= todo.title %> - <%= todo.description %> - <%= todo.due_date %>
+        </li>
+        <% }); %>
+    </ul>
+
+
+    <form method="post" action="/todo/addtodo">
+      <input type="hidden" class="form-control" name="user_id" id="userID"><br>
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" name="title">
+      </div>
+
+      <br>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea name="description" class="form-control"></textarea>
+      </div>
+
+      <br>
+
+
+      <div class="form-group">
+        <label for="due_date">Due Date:</label>
+        <input type="date" class="form-control" name="due_date"><br>
+      </div>
+
+      <br>
+
+      <input type="submit" value="Add" class="btn btn-primary">
+
+    </form>
+  </div>
+  <script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('userId')
+
+    //console.log("URL PARAMS : ", urlParams)
+    //console.log("MY PARAM : ", myParam)
+
+    // Set the value of the user_id input field
+    document.getElementById('userID').value = myParam;
+    console.log(myParam);
+
+  </script>
+
+</body>
+
+</html>
